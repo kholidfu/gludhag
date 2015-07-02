@@ -124,6 +124,9 @@ foreach($arrDir as $dirname) {
 							if($cek < 1){  // jika tidak ada nama file yang sama
 								
 								preg_match("/(\.\w{1,5})$/i", $filenya, $extfile);
+								if (count($extfile) <= 1) {
+								   continue;
+								}
 								$newimg = $wallslug.strtolower($extfile[0]);
 								$newlarge = "large-".$newimg;
 								$newthb = "thumb-".$newimg;
