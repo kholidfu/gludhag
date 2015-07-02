@@ -1,0 +1,19 @@
+TODO:
+=====
+
+- DONE :: bikin variable global untuk nama domain
+- DONE :: bikin title, resolusi dan added when di halaman index.
+- DONE :: tambahkan meta info di halaman index.blade.php
+- DONE :: inspeksi alt and title attribute on img tag
+- DONE :: bikin paging di index dan category
+- DONE :: adding strict trailing slash di url :: category/ :: category/your-kitchen
+- DONE :: global variable untuk batas gambar thumbnail yang ditampilkan di halaman index, attachment, category
+- DONE :: adding if random or not
+- DONE :: fixing halaman category
+- DONE :: ubah makwuzz untuk baca direktori uploads di base_path() . /uploads/kitchen-bed
+- DONE :: makwuzz -> post
+- DB:: harus diabstraksi lagi menjadi `maklan` (nama database) ref: jeffrey way utub
+- bikin fungsi truncate untuk deskripsi related di detail.blade.php
+- humanize filesize
+- jika nama file sudah ada di database, hapus filenya
+- kategori dibikin dynamic, so jika ada request baru search di title

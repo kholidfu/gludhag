@@ -1,0 +1,99 @@
+sudo apt-get update
+sudo apt-get install nginx php5-fpm php5-cli php5-mcrypt git emacs24-nox php5-gd imagemagick php5-imagick
+sudo emacs /etc/php5/fpm/php.ini
+
+uncomment this line, and change from 1 to 0
+cgi.fix_pathinfo=0
+
+sudo php5enmod mcrypt
+sudo service php5-fpm restart
+
+
+
+====================================================
+
+# install composer globally
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+
+mkdir example.com
+git clone https://bitbucket.org/sopier/gludug .
+
+# install dependencies
+composer install
+composer update
+
+# change dirs permission
+sudo chmod -R 777 uploads && sudo chmod -R 777 storage && sudo chmod -R 777 vendor
+# chown -R www-data:banteng vendor
+# chown -R www-data:banteng storage
+
+===
+sesuaikan config/database.php credentials
+create database di mysql
+
+cd example.com
+mv .env.example .env
+emacs .env
+
+php artisan migrate
+
+=== 
+# setting nginx
+sudo nano /etc/nginx/sites-available/default
+
+masukkan baris config berikut, rubah bagian root dan server_name
+
+contoh:
+
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server ipv6only=on;
+
+    root /home/hananhiri/example.com/public;
+    index index.php index.html index.htm;
+
+    server_name 104.238.176.213;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php$ {
+        try_files $uri /index.php =404;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}
+
+sudo service nginx restart
+
+# set permission for makwuzz dir
+cd ~/example.com/public
+sudo chown -R www-data:banteng images-uploads
+
+# set permission for bahan dir
+cd ~/example.com
+sudo chown -R www-data:banteng uploads
+
+// upload bahan dari komputer local
+cd ~
+rsync -avz --progress uploads/ hananhiri@104.238.176.213:/home/hananhiri/example.com/uploads/
+
+// post
+example.com/admin/post
+
+// reset jika error
+
+php artisan migrate:rollback
+cd public/images-uploads/ && sudo rm -rf .
+
+sudo chown -R hananhiri:hananhiri uploads/
+sudo chmod -R 777 uploads/
+sudo chown -R hananhiri:hananhiri images-uploads/
+sudo chmod -R 777 images-uploads/
+
+// harus-e folder uploads itu ditaruh diluar applikasi laravelnya, biar gak pusing sama permission.

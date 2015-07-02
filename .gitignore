@@ -1,0 +1,11 @@
+/vendor
+/node_modules
+phpmyadmin/
+images-uploads/
+assets/
+cdnimages/
+uploads/
+.env
+.DS_Store
+Thumbs.db
+*~
