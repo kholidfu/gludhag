@@ -124,6 +124,8 @@ foreach($arrDir as $dirname) {
 							if($cek < 1){  // jika tidak ada nama file yang sama
 								
 								preg_match("/(\.\w{1,5})$/i", $filenya, $extfile);
+								// jika nama file mengandung lebih dari satu .
+								// skip and continue loop
 								if (count($extfile) <= 1) {
 								   continue;
 								}
