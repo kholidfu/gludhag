@@ -26,7 +26,7 @@
 
 <div class="head-banner clearfix mb30">
     <div class="wrapper">
-      <h4>Gallery</h4>
+      <h4>Gallery Page {{ $curPage }}</h4>
       <div class="site_map">
         <a href="/" rel="nofollow">Home</a>
       </div>
@@ -53,7 +53,7 @@
                   </div>
             </div>
             <div class="desc">
-              <h2>{{ shortTitle($image->walltitle) }}</h2>
+              <h2>{{$image->walltitle}}</h2>
               <h4>{{ slugToTitle($image->cat) }} {{ env('TITLE_DIVIDER') }} {{ $image->wallresolution }}</h4>
             </div>
           </li>

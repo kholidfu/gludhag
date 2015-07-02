@@ -1,5 +1,5 @@
 <?php
-$reload = mt_rand(5,15);
+$reload = mt_rand(28800,86400);
 echo '<meta http-equiv="refresh" content="'.$reload.'; url="http://www.al-maliki.com/admin/post/" />';
 // SETTINGS
 $sitenames = env('DOMAIN_NAME');
@@ -29,8 +29,8 @@ $reduce_gradients = false;
 $num_results = 3; // Jumlah warna yang diambil
 
 // Jumlah image Sekali Submit
-$max = 1;
-//$max = mt_rand(1,3);
+//$max = 1;
+$max = mt_rand(1,11);
 
 $i = 1;
 
@@ -42,7 +42,7 @@ while($dir = readdir($handledir)){
 }
 
 closedir($handledir);
-//shuffle($arrDir);
+shuffle($arrDir);
 foreach($arrDir as $dirname) {
 	if($dirname != '.' && $dirname != '..'){
 		echo "<h2>".$dirname.":</h2>";
