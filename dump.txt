@@ -1,3 +1,7 @@
+####################################
+### install package dependencies ###
+####################################
+
 sudo apt-get update
 sudo apt-get install nginx php5-fpm php5-cli php5-mcrypt git emacs24-nox php5-gd imagemagick php5-imagick
 sudo emacs /etc/php5/fpm/php.ini
@@ -9,12 +13,17 @@ sudo php5enmod mcrypt
 sudo service php5-fpm restart
 
 
+#################################
+### install composer globally ###
+#################################
 
-====================================================
-
-# install composer globally
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
+
+
+######################################
+### clone and install dependencies ###
+######################################
 
 mkdir example.com
 git clone https://bitbucket.org/sopier/gludug .
@@ -25,21 +34,21 @@ composer update
 
 # change dirs permission
 sudo chmod -R 777 uploads && sudo chmod -R 777 storage && sudo chmod -R 777 vendor
-# chown -R www-data:banteng vendor
-# chown -R www-data:banteng storage
 
-===
-sesuaikan config/database.php credentials
+# sesuaikan config/database.php credentials
 create database di mysql
 
 cd example.com
 mv .env.example .env
 emacs .env
 
+# create table 
 php artisan migrate
 
-=== 
-# setting nginx
+###################
+### nginx setup ###
+###################
+
 sudo nano /etc/nginx/sites-available/default
 
 masukkan baris config berikut, rubah bagian root dan server_name
@@ -79,15 +88,22 @@ sudo chown -R www-data:banteng images-uploads
 cd ~/example.com
 sudo chown -R www-data:banteng uploads
 
-// upload bahan dari komputer local
+##################################################
+# rsync command upload bahan dari komputer local #
+##################################################
+
 cd ~
 rsync -avz --progress uploads/ hananhiri@104.238.176.213:/home/hananhiri/example.com/uploads/
+
+
+#############
+### NOTES ###
+#############
 
 // post
 example.com/admin/post
 
 // reset jika error
-
 php artisan migrate:rollback
 cd public/images-uploads/ && sudo rm -rf .
 
