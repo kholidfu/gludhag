@@ -31,6 +31,7 @@ class PageController extends Controller {
         foreach ($images as $des) {
             $desc = $des;
         }
+        
         $recents = DB::table('wallpaper')
             ->orderBy('id', 'DESC')
             ->take(5)
@@ -249,19 +250,20 @@ class PageController extends Controller {
             ->paginate(env('LIMIT_LISTCATEGORY'))
             ->setPath(env('PAGING_SLUG'));
 
-        // get 3 titles for page title meta
+        // get 3 titles for page title meta           
         $titles = DB::table('wallpaper')
             ->where('cat', '=', $catname)
             ->orderBy('id', 'DESC')
-            ->take(3)
-            ->get(array('walltitle'));
+            ->paginate(env('LIMIT_LISTCATEGORY'))
+            ->setPath(env('PAGING_SLUG')) 
+            ->take(3);      
 
-        // get 15 titles for meta description
+        // get titles for meta description
         $descriptions = DB::table('wallpaper')
             ->where('cat', '=', $catname)
             ->orderBy('id', 'DESC')
-            ->take(15)
-            ->get();
+            ->paginate(env('LIMIT_LISTCATEGORY'))
+            ->setPath(env('PAGING_SLUG')); 
 
         // extract walltitle and join it to string
         $container = array();
@@ -317,19 +319,20 @@ class PageController extends Controller {
             ->paginate(env('LIMIT_LISTCATEGORY'))
             ->setPath(env('PAGING_SLUG'));
 
-        // get 3 titles for page title meta
+        // get 3 titles for page title meta           
         $titles = DB::table('wallpaper')
             ->where('cat', '=', $catname)
             ->orderBy('id', 'DESC')
-            ->take(3)
-            ->get(array('walltitle'));
+            ->paginate(env('LIMIT_LISTCATEGORY'))
+            ->setPath(env('PAGING_SLUG')) 
+            ->take(3);      
 
-        // get 15 titles for meta description
+        // get titles for meta description
         $descriptions = DB::table('wallpaper')
             ->where('cat', '=', $catname)
             ->orderBy('id', 'DESC')
-            ->take(15)
-            ->get();
+            ->paginate(env('LIMIT_LISTCATEGORY'))
+            ->setPath(env('PAGING_SLUG')); 
 
         // extract walltitle and join it to string
         $container = array();

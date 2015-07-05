@@ -17,9 +17,9 @@
 
 <div class="head-banner clearfix mb30">
     <div class="wrapper">
-      <h4>Arkitekt</h4>
+      <h4>{{ slugToTitle($catname) }} Categoriez</h4>
       <div class="site_map">
-        <a href="/">Home</a><a href="{{ url(env('CATEGORY_SLUG')) . '/'  }}">category</a><a href="{{ url(env('CATEGORY_SLUG') . $catname) . '/' }}">{{ slugToTitle($catname) }}</a>
+        <a href="/" rel="nofollow">Home</a><a href="{{ url(env('CATEGORY_SLUG')) . '/'  }}" rel="nofollow">category</a><a href="{{ url(env('CATEGORY_SLUG') . $catname) . '/' }}" rel="nofollow">{{ slugToTitle($catname) }}</a>
       </div>
       <div class="clear"></div>
     </div>
@@ -44,8 +44,8 @@
                   </div>
             </div>
             <div class="desc">
-              <h4>{{ shortTitle($image->walltitle) }}</h4>
-              <span>{{ slugToTitle($image->cat) }} {{ env('TITLE_DIVIDER') }} {{ $image->wallresolution }} {{ env('TITLE_DIVIDER') }} {{ $image->wallfilesize/1000 }} kB</span>
+              <h2>{{$image->walltitle}}</h2>
+              <h4>{{ slugToTitle($image->cat) }} {{ env('TITLE_DIVIDER') }} {{ $image->wallfilesize/1000 }} kB</h4>
             </div>
           </li>
           @endforeach

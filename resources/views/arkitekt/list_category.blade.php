@@ -44,8 +44,8 @@
                   </div>
             </div>
             <div class="desc">
-              <h4>{{ shortTitle($image->walltitle) }}</h4>
-              <span>{{ slugToTitle($image->cat) }} {{ env('TITLE_DIVIDER') }} {{ $image->wallresolution }} {{ env('TITLE_DIVIDER') }} {{ $image->wallfilesize/1000 }} kB</span>
+              <h2>{{$image->walltitle}}</h2>
+              <h4>{{ slugToTitle($image->cat) }} {{ env('TITLE_DIVIDER') }} {{ $image->wallfilesize/1000 }} kB</h4>
             </div>
           </li>
           @endforeach

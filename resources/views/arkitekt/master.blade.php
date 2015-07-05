@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="oYoTFnH3FgZ2n-tS-ECLmXtN0MaeZtVp7zQQoRStbT4" />
   <title>@yield('title')</title>
   @yield('meta')
   <!-- stylesheet -->
@@ -151,6 +152,9 @@
   </div>
 
 
+  <!-- stats -->
+
+  
   <!-- include jQuery -->
   <script type="text/javascript" src="{{ asset('static/js/jquery.min.js') }}"></script>
 {{-- <script type="text/javascript" src="{{ asset('static/js/accordion.js') }}"></script> --}}
