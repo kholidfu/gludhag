@@ -14,7 +14,11 @@ class ImageController extends Controller {
         // ambil path-nya
         $fpath = public_path() . env('ASSET_SLUG') . $image->walldir . '/' . $image->wallimg;
         // resize
-        $img = Image::make($fpath)->resize($x, $y);
+        // $img = Image::make($fpath)->resize($x, $y);
+	// fixed width and auto-height
+	$img = Image::make($fpath)->resize($x, null, function($constraint) {
+	     $constraint->aspectRatio();
+	});
         // return response
         return $img->response('jpg');
 
