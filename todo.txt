@@ -12,8 +12,8 @@ TODO:
 - DONE :: fixing halaman category
 - DONE :: ubah makwuzz untuk baca direktori uploads di base_path() . /uploads/kitchen-bed
 - DONE :: makwuzz -> post
-- DB:: harus diabstraksi lagi menjadi `maklan` (nama database) ref: jeffrey way utub
-- bikin fungsi truncate untuk deskripsi related di detail.blade.php
-- humanize filesize
+- DONE :: bikin fungsi truncate untuk deskripsi related di detail.blade.php
+- DONE :: humanize filesize and date_added
 - jika nama file sudah ada di database, hapus filenya
 - kategori dibikin dynamic, so jika ada request baru search di title
+- DB:: harus diabstraksi lagi menjadi `maklan` (nama database) ref: jeffrey way utub
