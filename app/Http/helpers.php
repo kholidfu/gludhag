@@ -46,7 +46,10 @@ use Illuminate\Support\Facades\DB as DB;
 
     function dynamicImgRes($w, $resolutionString) {
         /*
-    	$resolutionString -> 1280x780
+	* $w -> 1280
+    	* $resolutionString -> 1280x780
+	* showing auto-calculated height in html
+	* given fixed width as input
     	*/
     	$resArray = explode('x', $resolutionString);
     	// dd($resArray);
