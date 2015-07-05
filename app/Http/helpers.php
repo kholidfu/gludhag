@@ -44,4 +44,17 @@ use Illuminate\Support\Facades\DB as DB;
         return count($total);
     }
 
+    function dynamicImgRes($w, $resolutionString) {
+        /*
+    	$resolutionString -> 1280x780
+    	*/
+    	$resArray = explode('x', $resolutionString);
+    	// dd($resArray);
+    	$x = $resArray[0];
+    	$y = $resArray[1];
+	$ratio = $x / $y;
+	$newY = round($w / $ratio, 0);
+	return $w . 'x' . $newY;
+    }
+
 ?>

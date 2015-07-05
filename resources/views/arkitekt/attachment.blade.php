@@ -92,16 +92,16 @@
                 <button style="cursor: pointer; padding: 15px; background: #4eccb9; text-transform: uppercase; border: none; text-align: center; color: #fff; font-family: 'Open Sans', sans-serif; font-weight: 500; -webkit-transition: all 0.2s ease-in-out;">Back to Single</button>
               </a>
               <a href="{{ url(env('RESOLUTION_SLUG') . '1280x720-'. $image->wallimg) }}">
-                <button style="cursor: pointer; padding: 15px; background: #4eccb9; text-transform: uppercase; border: none; text-align: center; color: #fff; font-family: 'Open Sans', sans-serif; font-weight: 500; -webkit-transition: all 0.2s ease-in-out;">1280x720</button>
+                <button style="cursor: pointer; padding: 15px; background: #4eccb9; text-transform: uppercase; border: none; text-align: center; color: #fff; font-family: 'Open Sans', sans-serif; font-weight: 500; -webkit-transition: all 0.2s ease-in-out;">{{ dynamicImgRes('1280', $image->wallresolution) }}</button>
               </a>
               <a href="{{ url(env('RESOLUTION_SLUG') . '1920x1440-'. $image->wallimg) }}">
-                <button style="cursor: pointer; padding: 15px; background: #4eccb9; text-transform: uppercase; border: none; text-align: center; color: #fff; font-family: 'Open Sans', sans-serif; font-weight: 500; -webkit-transition: all 0.2s ease-in-out;">1920x1440</button>
+                <button style="cursor: pointer; padding: 15px; background: #4eccb9; text-transform: uppercase; border: none; text-align: center; color: #fff; font-family: 'Open Sans', sans-serif; font-weight: 500; -webkit-transition: all 0.2s ease-in-out;">{{ dynamicImgRes('1920', $image->wallresolution) }}</button>
               </a>
               <a href="{{ url(env('RESOLUTION_SLUG') . '480x800-'. $image->wallimg) }}">
-                <button style="cursor: pointer; padding: 15px; background: #4eccb9; text-transform: uppercase; border: none; text-align: center; color: #fff; font-family: 'Open Sans', sans-serif; font-weight: 500; -webkit-transition: all 0.2s ease-in-out;">480x800</button>
+                <button style="cursor: pointer; padding: 15px; background: #4eccb9; text-transform: uppercase; border: none; text-align: center; color: #fff; font-family: 'Open Sans', sans-serif; font-weight: 500; -webkit-transition: all 0.2s ease-in-out;">{{ dynamicImgRes('480', $image->wallresolution) }}</button>
               </a>
               <a href="{{ url(env('RESOLUTION_SLUG') . '800x600-'. $image->wallimg) }}">
-                <button style="cursor: pointer; padding: 15px; background: #4eccb9; text-transform: uppercase; border: none; text-align: center; color: #fff; font-family: 'Open Sans', sans-serif; font-weight: 500; -webkit-transition: all 0.2s ease-in-out;">800x600</button>
+                <button style="cursor: pointer; padding: 15px; background: #4eccb9; text-transform: uppercase; border: none; text-align: center; color: #fff; font-family: 'Open Sans', sans-serif; font-weight: 500; -webkit-transition: all 0.2s ease-in-out;">{{ dynamicImgRes('800', $image->wallresolution) }}</button>
               </a>
             </p>
           </div>
