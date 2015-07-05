@@ -61,7 +61,7 @@
         <div class="contact-box column6">
           <form id="contact-form">
             <h3 class="main-title">Get in touch</h3>
-            <span class="main-subtitle">send us a message</span>
+            <span class="main-subtitle">shoot us a message</span>
               <div class="dark">
                 <div class="text-fields column4">
                   <div class="float-input">

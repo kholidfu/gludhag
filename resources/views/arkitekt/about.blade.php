@@ -50,7 +50,7 @@
 
   <div class="our-team-about wrapper mb30">
       <h3 class="main-title">Meet our Team</h3>
-      <span class="main-subtitle">our cool &amp; professional staff</span>
+      <span class="main-subtitle">our <del>not so</del> cool &amp; <del>not so</del> professional staff</span>
 
         <div class="dark">
         
