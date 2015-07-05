@@ -24,6 +24,8 @@ class Kernel extends ConsoleKernel {
 	{
 		$schedule->command('inspire')
 				 ->hourly();
+		// $schedule->exec("echo hello")->everyFiveMinutes();
+		// $schedule->exec("touch ~/Code/dumb.txt")->everyMinute();
 	}
 
 }
