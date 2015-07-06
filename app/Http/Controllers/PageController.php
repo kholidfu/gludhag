@@ -520,7 +520,7 @@ class PageController extends Controller {
         // show all posts which started with $char
 	$recents = DB::table('wallpaper')
             ->orderBy('id', 'DESC')
-            ->take(5)
+            // ->take(5)
             ->get();
         $randimg = DB::table('wallpaper')
             ->orderByRaw("RAND()")
