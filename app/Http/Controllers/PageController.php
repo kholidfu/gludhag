@@ -520,7 +520,7 @@ class PageController extends Controller {
         // show all posts which started with $char
 	$recents = DB::table('wallpaper')
             ->orderBy('id', 'DESC')
-            // ->take(5)
+            ->take(5)
             ->get();
         $randimg = DB::table('wallpaper')
             ->orderByRaw("RAND()")
@@ -537,7 +537,7 @@ class PageController extends Controller {
             ->get();          
 	$data = DB::table('wallpaper')
 	    ->where('wallslug', 'LIKE', $char . '%')
-	    ->take(5)
+	    // ->take(5)
 	    ->get();
 	$char = ucwords($char);
 	return view('arkitekt.sitemap', compact('char', 'recents', 'tags', 'randimg', 'randimg1', 'data'));
