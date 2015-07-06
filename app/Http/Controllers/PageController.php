@@ -516,6 +516,34 @@ class PageController extends Controller {
     }
 
 
+    function sitemap($char) {
+        // show all posts which started with $char
+	$recents = DB::table('wallpaper')
+            ->orderBy('id', 'DESC')
+            ->take(5)
+            ->get();
+        $randimg = DB::table('wallpaper')
+            ->orderByRaw("RAND()")
+            ->take(3)
+            ->get();
+        $randimg1 = DB::table('wallpaper')
+            ->orderByRaw("RAND()")
+            ->take(3)
+            ->skip(3)
+            ->get();
+        $tags = DB::table('wallpaper')
+            ->orderByRaw("RAND()")
+            ->take(mt_rand(7,11))
+            ->get();          
+	$data = DB::table('wallpaper')
+	    ->where('wallslug', 'LIKE', $char . '%')
+	    ->take(5)
+	    ->get();
+	$char = ucwords($char);
+	return view('arkitekt.sitemap', compact('char', 'recents', 'tags', 'randimg', 'randimg1', 'data'));
+    }
+
+
     function shortTitle($string) {
         // get the first 2 words from $string
         $ex_string = explode(' ', $string);

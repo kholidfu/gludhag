@@ -34,6 +34,8 @@ Route::get(env('CATEGORY_SLUG') . '{catname}/', 'PageController@listcategory');
 
 Route::get(env('CATEGORY_SLUG') . '{catname}/' . env('PAGING_SLUG'), 'PageController@categoryPaging');
 
+Route::get(env('SITEMAP_SLUG') . '{char}', 'PageController@sitemap');
+
 Route::get('/popular', 'PageController@popular');
 
 Route::get('/newest', 'PageController@newest');
