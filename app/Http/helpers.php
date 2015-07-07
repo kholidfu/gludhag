@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\DB as DB;
         return $ex_string[0] . ' ' . $ex_string[1];
     }
 
-
     function title($string) {
         return ucwords($string);
     }
