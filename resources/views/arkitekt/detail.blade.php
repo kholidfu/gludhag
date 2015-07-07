@@ -59,6 +59,7 @@
                     <td>NAME:</td>
                     <td><h3>{{ $image->walltitle }}</h3></td>
                   </tr>
+                  <tr>
                     <td>CATEGORY:</td>
                     <td><a href="{{ url(env('CATEGORY_SLUG') . $image->cat) . '/' }}" rel="nofollow">{{ title(removeDash($image->cat)) }}</a></td>
                   </tr>
@@ -220,7 +221,7 @@
           <h3>Most See Photos</h3>
           @foreach ($images as $img)
           <div class="feat-boxes2">
-            <a href="{{ url(env('SINGLE_SLUG') . $img->wallslug . '_' . $img->id . '.html') }}" rel="nofollow"><img src="{{ url(env('ASSET_SLUG').$img->walldir.'/small-'.$img->wallimg) }}" alt="{{ $image->walltitle }} {{ env('TITLE_DIVIDER') }} {{ env('DOMAIN_NAME') }}" alt="{{ $image->walltitle }} {{ env('TITLE_DIVIDER') }} {{ env('DOMAIN_NAME') }}" title="{{ $image->walltitle }} {{ env('TITLE_DIVIDER') }} {{ env('DOMAIN_NAME') }}" style="width:50px;height:50px"></a>
+            <a href="{{ url(env('SINGLE_SLUG') . $img->wallslug . '_' . $img->id . '.html') }}" rel="nofollow"><img src="{{ url(env('ASSET_SLUG').$img->walldir.'/small-'.$img->wallimg) }}" alt="{{ $image->walltitle }} {{ env('TITLE_DIVIDER') }} {{ env('DOMAIN_NAME') }}" title="{{ $image->walltitle }} {{ env('TITLE_DIVIDER') }} {{ env('DOMAIN_NAME') }}" style="width:50px;height:50px"></a>
             <div class="feat-right2">
               <h4 class="h4rs"><a href="{{ url(env('SINGLE_SLUG') . $img->wallslug . '_' . $img->id . '.html') }}" rel="nofollow"> </a>{{ $img->walltitle }}</h4>
             </div>

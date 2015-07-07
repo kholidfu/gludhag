@@ -61,9 +61,18 @@
       <a class="info-toggle" href="#"><i class="fa fa-info-circle"></i></a>
       <div class="info-content">
         <ul>
-          <li><i class="fa fa-phone"></i>9930 1234 5679</li>
-          <li><i class="fa fa-envelope"></i><a href="#">contact@domain.com</a></li>
-          <li><i class="fa fa-home"></i>street address example</li>
+          <li>Index-Gallery</li>
+          <li style="margin-top: -5px;">
+            @foreach ($alp as $a)
+            <a href="{{ url(env('SITEMAP_SLUG').strtolower($a)) }}">{{ $a }}</a>
+            @endforeach 
+          </li>
+          <li style="margin-top: -10px;">
+            @foreach ($num as $n)
+            <a href="{{ url(env('SITEMAP_SLUG').strtolower($n)) }}">{{ $n }}</a>
+            @endforeach 
+          </li>
+          <li><i class="fa fa-envelope"></i><a href="#">contact@al-maliki.com</a></li>
         </ul>
       </div>
     </div>

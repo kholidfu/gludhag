@@ -49,11 +49,13 @@ class PageController extends Controller {
             ->orderByRaw("RAND()")
             ->take(mt_rand(7,11))
             ->get();            
-
+        $alp  = range('A','Z');
+        $num  = range(0,9);
+        
         // pagination
         $paging = with(new CustomPagination($images))->render();
 
-        return view('arkitekt.index', compact('images', 'desc', 'recents', 'randimg', 'randimg1', 'tags', 'paging'));
+        return view('arkitekt.index', compact('images', 'desc', 'recents', 'randimg', 'randimg1', 'tags', 'paging', 'alp', 'num'));
     }
 
 
@@ -89,15 +91,18 @@ class PageController extends Controller {
         $tags = DB::table('wallpaper')
             ->orderByRaw("RAND()")
             ->take(mt_rand(7,11))
-            ->get();            
-
+            ->get();
+            
+        $alp  = range('A','Z');
+        $num  = range(0,9);
+        
         // pagination
         $paging = with(new CustomPagination($images))->render();
 
         // get current page /goto?page=num
         $curPage = $images->currentPage();
 
-        return view('arkitekt.index_paging', compact('images', 'desc', 'recents', 'randimg', 'randimg1', 'tags', 'paging', 'curPage'));
+        return view('arkitekt.index_paging', compact('images', 'desc', 'recents', 'randimg', 'randimg1', 'tags', 'paging', 'alp', 'num', 'curPage'));
     }
 
 
@@ -151,11 +156,12 @@ class PageController extends Controller {
             ->orderByRaw("RAND()")
             ->take(mt_rand(7,11))
             ->get();
-
+        $alp  = range('A','Z');
+        $num  = range(0,9);
         // get categories
         $categories = $this->getCategory();
 
-        return view('arkitekt.detail', compact('image', 'vav', 'vavsqq', 'short_title', 'short_title1', 'relateds1', 'relateds2', 'relateds3', 'recents', 'randimg', 'randimg1', 'images', 'tags', 'categories'));
+        return view('arkitekt.detail', compact('image', 'vav', 'vavsqq', 'short_title', 'short_title1', 'relateds1', 'relateds2', 'relateds3', 'recents', 'randimg', 'randimg1', 'images', 'tags', 'categories', 'alp', 'num'));
     }
 
 
@@ -190,8 +196,9 @@ class PageController extends Controller {
             ->orderByRaw("RAND()")
             ->take(mt_rand(7,11))
             ->get();                   
-
-        return view('arkitekt.attachment', compact('image', 'recents', 'randimg', 'randimg1', 'tags', 'images'));
+        $alp  = range('A','Z');
+        $num  = range(0,9);
+        return view('arkitekt.attachment', compact('image', 'recents', 'randimg', 'randimg1', 'tags', 'images', 'alp', 'num'));
     }
 
 
@@ -236,8 +243,9 @@ class PageController extends Controller {
             ->take(7)
             ->get();      
         $catString = arrayToTitleString($categories);
-
-        return view('arkitekt.category', compact('categories', 'recents', 'randimg', 'randimg1', 'tags', 'images', 'thumbs', 'thumbar', 'catString'));
+        $alp  = range('A','Z');
+        $num  = range(0,9);
+        return view('arkitekt.category', compact('categories', 'recents', 'randimg', 'randimg1', 'tags', 'images', 'thumbs', 'thumbar', 'catString', 'alp', 'num'));
     }
 
     function listcategory($catname) {
@@ -297,11 +305,12 @@ class PageController extends Controller {
             ->orderByRaw("RAND()")
             ->take(mt_rand(7,11))
             ->get();                          
-
+        $alp  = range('A','Z');
+        $num  = range(0,9);
         // paging
         $paging = with(new CustomPagination($images))->render();
 
-        return view('arkitekt.list_category', compact('images', 'catname', 'titles', 'descriptions', 'recents', 'randimg', 'randimg1', 'tags', 'paging'));
+        return view('arkitekt.list_category', compact('images', 'catname', 'titles', 'descriptions', 'recents', 'randimg', 'randimg1', 'tags', 'paging', 'alp', 'num'));
     }
 
 
@@ -366,14 +375,15 @@ class PageController extends Controller {
             ->orderByRaw("RAND()")
             ->take(mt_rand(7,11))
             ->get();                 
-
+        $alp  = range('A','Z');
+        $num  = range(0,9);
         // paging
         $paging = with(new CustomPagination($images))->render();
 
         // get page parameter value 1, 2, 3, 4 dst
         $curPage = $images->currentPage();
 
-        return view('arkitekt.category_paging', compact('images', 'catname', 'titles', 'descriptions', 'recents', 'randimg', 'randimg1', 'tags', 'paging', 'curPage'));
+        return view('arkitekt.category_paging', compact('images', 'catname', 'titles', 'descriptions', 'recents', 'randimg', 'randimg1', 'tags', 'paging', 'curPage', 'alp', 'num'));
     }
 
 
@@ -398,8 +408,10 @@ class PageController extends Controller {
         $tags = DB::table('wallpaper')
             ->orderByRaw("RAND()")
             ->take(mt_rand(7,11))
-            ->get();                    
-        return view('arkitekt.popular', compact('images', 'recents', 'randimg', 'randimg1', 'tags'));
+            ->get();    
+        $alp  = range('A','Z');
+        $num  = range(0,9);            
+        return view('arkitekt.popular', compact('images', 'recents', 'randimg', 'randimg1', 'tags', 'alp', 'num'));
     }
 
 
@@ -424,8 +436,10 @@ class PageController extends Controller {
         $tags = DB::table('wallpaper')
             ->orderByRaw("RAND()")
             ->take(mt_rand(7,11))
-            ->get();                      
-        return view('arkitekt.newest', compact('images', 'recents', 'randimg' , 'randimg1', 'tags'));
+            ->get(); 
+        $alp  = range('A','Z');
+        $num  = range(0,9);            
+        return view('arkitekt.newest', compact('images', 'recents', 'randimg' , 'randimg1', 'tags', 'alp', 'num'));
     }
 
 
@@ -446,8 +460,10 @@ class PageController extends Controller {
         $tags = DB::table('wallpaper')
             ->orderByRaw("RAND()")
             ->take(mt_rand(7,11))
-            ->get();          
-        return view('arkitekt.about', compact('recents' ,'randimg' , 'randimg1' ,'tags'));
+            ->get();     
+        $alp  = range('A','Z');
+        $num  = range(0,9);            
+        return view('arkitekt.about', compact('recents' ,'randimg' , 'randimg1' ,'tags', 'alp', 'num'));
     }
 
 
@@ -468,8 +484,10 @@ class PageController extends Controller {
         $tags = DB::table('wallpaper')
             ->orderByRaw("RAND()")
             ->take(mt_rand(7,11))
-            ->get();          
-        return view('arkitekt.privacy', compact('recents' ,'randimg' , 'randimg1' ,'tags'));
+            ->get();  
+        $alp  = range('A','Z');
+        $num  = range(0,9);            
+        return view('arkitekt.privacy', compact('recents' ,'randimg' , 'randimg1' ,'tags', 'alp', 'num'));
     }
 
     function terms() {
@@ -489,8 +507,10 @@ class PageController extends Controller {
         $tags = DB::table('wallpaper')
             ->orderByRaw("RAND()")
             ->take(mt_rand(7,11))
-            ->get();          
-        return view('arkitekt.terms', compact('recents' ,'randimg' , 'randimg1' ,'tags'));
+            ->get();    
+        $alp  = range('A','Z');
+        $num  = range(0,9);            
+        return view('arkitekt.terms', compact('recents' ,'randimg' , 'randimg1' ,'tags', 'alp', 'num'));
     }    
 
 
@@ -511,14 +531,20 @@ class PageController extends Controller {
         $tags = DB::table('wallpaper')
             ->orderByRaw("RAND()")
             ->take(mt_rand(7,11))
-            ->get();          
-        return view('arkitekt.contact', compact('recents' ,'randimg' , 'randimg1' ,'tags'));
+            ->get();
+        $alp  = range('A','Z');
+        $num  = range(0,9);            
+        return view('arkitekt.contact', compact('recents' ,'randimg' , 'randimg1' ,'tags', 'alp', 'num'));
     }
 
 
     function sitemap($char) {
+        $images = DB::table('wallpaper')
+            ->orderBy('wallview', 'DESC')
+            ->take(7)
+            ->get(); 
         // show all posts which started with $char
-	$recents = DB::table('wallpaper')
+        $recents = DB::table('wallpaper')
             ->orderBy('id', 'DESC')
             ->take(5)
             ->get();
@@ -535,12 +561,17 @@ class PageController extends Controller {
             ->orderByRaw("RAND()")
             ->take(mt_rand(7,11))
             ->get();          
-	$data = DB::table('wallpaper')
-	    ->where('wallslug', 'LIKE', $char . '%')
-	    // ->take(5)
-	    ->get();
-	$char = ucwords($char);
-	return view('arkitekt.sitemap', compact('char', 'recents', 'tags', 'randimg', 'randimg1', 'data'));
+        $data = DB::table('wallpaper')
+            ->where('wallslug', 'LIKE', $char . '%')
+            // ->take(5)
+            ->get();
+        // get categories
+        $categories = $this->getCategory();
+        $char = ucwords($char);
+
+        $alp  = range('A','Z');
+        $num  = range(0,9);  
+	return view('arkitekt.sitemap', compact('char', 'images', 'image',  'recents', 'tags', 'categories', 'randimg', 'randimg1', 'data', 'alp', 'num'));
     }
 
 

@@ -2840,11 +2840,11 @@ footer .submit-area {
 	clear:both;
 	background:#383e42;
 	padding:20px 18px 4px;
-	width:265px;
+	width:365px;
 	position:absolute;
 	left:50%;
-	margin-left:-141px;
-	top:44px;
+	margin-left:-191px;
+	top:36px;
 	display:none;
 }
 .info-content ul li {
@@ -2854,6 +2854,7 @@ footer .submit-area {
 	font-family:'Roboto',sans-serif;
 	font-weight:300;
 	margin-bottom:18px;
+  text-align: center;
 }
 .info-content ul li i {
 	font-size:20px;
@@ -2862,6 +2863,7 @@ footer .submit-area {
 .info-content ul li a {
 	color:#fff;
 }
+.info-content a:hover,.info-content a:focus {	color:#4eccb9;}
 .dark-version footer input[type="text"] {
 	background:#1d1d1d !important;
 	border:1px solid #151515 !important;
@@ -2926,3 +2928,9 @@ table td a:hover{
 .h4rs a{width: 100%; height: 100%; position: absolute;}
 .vav blockquote{font-size: 13px;color: #9c9c9c;diplay:inline-block;font-weight: 300;line-height: 19px;}
 .vav{padding: 10px;}
+.mpg{display: inline-block; margin-bottom: 27px; width: 100%;}
+.mpg ul li {font-size:13px;font-family:'Roboto',sans-serif;margin-bottom:5px;}
+.mpg a {color:#777;}
+.mpg li {list-style-type: circle;}
+.mpg ul {margin-left: 15px;}
+.mpg a:hover,.mpg a:focus {	color:#4eccb9;}

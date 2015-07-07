@@ -41,7 +41,7 @@
 
           <div class="toolbar">
             <a href="{{ url(env('ASSET_SLUG') . $image->walldir . '/' . $image->wallimg) }}">
-              <img style="display: block; margin: 0 auto; padding: 10px; width: 95%; height: auto;" src="{{ url(env('ASSET_SLUG') . $image->walldir . '/large-' . $image->wallimg) }}" alt="{{ slugToTitle($image->cat) }}: {{ $image->walltitle }} {{ env('TITLE_DIVIDER') }} {{ env('DOMAIN_NAME') }}" title="{{ $image->walltitle }} {{ env('TITLE_DIVIDER') }} {{ env('DOMAIN_NAME') }}" alt="{{ slugToTitle($image->cat) }}: {{ $image->walltitle }} {{ env('TITLE_DIVIDER') }} {{ env('DOMAIN_NAME') }}"/>
+              <img style="display: block; margin: 0 auto; padding: 10px; width: 95%; height: auto;" src="{{ url(env('ASSET_SLUG') . $image->walldir . '/large-' . $image->wallimg) }}" alt="{{ slugToTitle($image->cat) }}: {{ $image->walltitle }} {{ env('TITLE_DIVIDER') }} {{ env('DOMAIN_NAME') }}" title="{{ $image->walltitle }} {{ env('TITLE_DIVIDER') }} {{ env('DOMAIN_NAME') }}" />
             </a>
           </div>
 
@@ -61,6 +61,7 @@
                     <td>FILE-NAME:</td>
                     <td>{{ $image->wallimg }}</td>
                   </tr>
+                  <tr>
                     <td>CATEGORY:</td>
                     <td><a href="{{ url(env('CATEGORY_SLUG') . $image->cat) . '/' }}" rel="nofollow">{{ title(removeDash($image->cat)) }}</a></td>
                   </tr>
@@ -91,17 +92,17 @@
               <a href="{{ url(env('SINGLE_SLUG') . $image->wallslug) }}_{{ $image->id }}.html">
                 <button style="cursor: pointer; padding: 15px; background: #4eccb9; text-transform: uppercase; border: none; text-align: center; color: #fff; font-family: 'Open Sans', sans-serif; font-weight: 500; -webkit-transition: all 0.2s ease-in-out;">Back to Single</button>
               </a>
+              <a href="{{ url(env('RESOLUTION_SLUG') . '1920x1440-'. $image->wallimg) }}">
+                <button style="cursor: pointer; padding: 15px; background: #4eccb9; text-transform: uppercase; border: none; text-align: center; color: #fff; font-family: 'Open Sans', sans-serif; font-weight: 500; -webkit-transition: all 0.2s ease-in-out;">{{ dynamicImgRes('1920', $image->wallresolution) }}</button>
+              </a>              
               <a href="{{ url(env('RESOLUTION_SLUG') . '1280x720-'. $image->wallimg) }}">
                 <button style="cursor: pointer; padding: 15px; background: #4eccb9; text-transform: uppercase; border: none; text-align: center; color: #fff; font-family: 'Open Sans', sans-serif; font-weight: 500; -webkit-transition: all 0.2s ease-in-out;">{{ dynamicImgRes('1280', $image->wallresolution) }}</button>
               </a>
-              <a href="{{ url(env('RESOLUTION_SLUG') . '1920x1440-'. $image->wallimg) }}">
-                <button style="cursor: pointer; padding: 15px; background: #4eccb9; text-transform: uppercase; border: none; text-align: center; color: #fff; font-family: 'Open Sans', sans-serif; font-weight: 500; -webkit-transition: all 0.2s ease-in-out;">{{ dynamicImgRes('1920', $image->wallresolution) }}</button>
-              </a>
-              <a href="{{ url(env('RESOLUTION_SLUG') . '480x800-'. $image->wallimg) }}">
-                <button style="cursor: pointer; padding: 15px; background: #4eccb9; text-transform: uppercase; border: none; text-align: center; color: #fff; font-family: 'Open Sans', sans-serif; font-weight: 500; -webkit-transition: all 0.2s ease-in-out;">{{ dynamicImgRes('480', $image->wallresolution) }}</button>
-              </a>
               <a href="{{ url(env('RESOLUTION_SLUG') . '800x600-'. $image->wallimg) }}">
                 <button style="cursor: pointer; padding: 15px; background: #4eccb9; text-transform: uppercase; border: none; text-align: center; color: #fff; font-family: 'Open Sans', sans-serif; font-weight: 500; -webkit-transition: all 0.2s ease-in-out;">{{ dynamicImgRes('800', $image->wallresolution) }}</button>
+              </a>              
+              <a href="{{ url(env('RESOLUTION_SLUG') . '480x800-'. $image->wallimg) }}">
+                <button style="cursor: pointer; padding: 15px; background: #4eccb9; text-transform: uppercase; border: none; text-align: center; color: #fff; font-family: 'Open Sans', sans-serif; font-weight: 500; -webkit-transition: all 0.2s ease-in-out;">{{ dynamicImgRes('480', $image->wallresolution) }}</button>
               </a>
             </p>
           </div>
@@ -118,7 +119,7 @@
           @foreach ($images as $image)
           <li class="class1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
             <div class="view view-sixth">
-                  <img src="{{ url(env('ASSET_SLUG').$image->walldir.'/small-'.$image->wallimg) }}" alt="{{ $image->walltitle }} {{ env('TITLE_DIVIDER') }} {{ env('DOMAIN_NAME') }}" title="{{ $image->walltitle }} {{ env('TITLE_DIVIDER') }} {{ env('DOMAIN_NAME') }}" alt="{{ $image->walltitle }} {{ env('TITLE_DIVIDER') }} {{ env('DOMAIN_NAME') }}">
+                  <img src="{{ url(env('ASSET_SLUG').$image->walldir.'/small-'.$image->wallimg) }}" alt="{{ $image->walltitle }} {{ env('TITLE_DIVIDER') }} {{ env('DOMAIN_NAME') }}" title="{{ $image->walltitle }} {{ env('TITLE_DIVIDER') }} {{ env('DOMAIN_NAME') }}">
                   <div class="mask">
                       <a href="{{ url(env('ASSET_SLUG').$image->walldir.'/'.$image->wallimg) }}" rel="nofollow" data-fancybox-group="group"><i class="fa fa-search"></i></a>
                       <a href="{{ url(env('SINGLE_SLUG').$image->wallslug.'_'.$image->id.'.html') }}" rel="nofollow"><i class="fa fa-file-o"></i></a>
