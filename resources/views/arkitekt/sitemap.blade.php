@@ -23,6 +23,7 @@
       <div class="clear"></div>
     </div>
   </div>
+<<<<<<< HEAD
  
 <div class="main-content wrapper dark">
       <div class="shop-content column9">
@@ -34,6 +35,18 @@
             @endforeach
             </ul>
           </div>
+=======
+
+<div class="aboutus wrapper mb30">
+    <div class="dark">
+
+      <div class="column12 biograph">
+      <ul>
+	@foreach ($data as $d)
+      	<li><a href="{{ url(env('SINGLE_SLUG') . str_slug(shortTitle($d->walltitle), '-') . '/' . $d->wallslug . '_' . $d->id . '.html') }}">{{ $d->walltitle }}</a></li>
+	@endforeach
+      </ul>
+>>>>>>> 05813a07d2e955f7d1c35e99d62ff2b6634ca06b
       </div>
       
       <div class="shop-aside column3">

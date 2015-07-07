@@ -113,6 +113,7 @@ class PageController extends Controller {
 	if ($imgtitle !== $image->wallslug) {
 	   abort(404);
 	}
+
         $short_title = str_slug($this->shortTitle($image->walltitle), '-');
 
         $vav = DB::table('wallpaper')
