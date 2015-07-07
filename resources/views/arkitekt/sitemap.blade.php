@@ -30,20 +30,10 @@
           <div class="mpg">
             <ul>
             @foreach ($data as $d)
-              <li><a href="{{ url(env('SINGLE_SLUG') . $d->wallslug . '_' . $d->id . '.html') }}">{{ $d->walltitle }}</a></li>
+	      <li><a href="{{ url(env('SINGLE_SLUG') . str_slug(shortTitle($d->walltitle), '-') . '/' . $d->wallslug . '_' . $d->id . '.html') }}">{{ $d->walltitle }}</a></li>
             @endforeach
             </ul>
           </div>
-
-<div class="aboutus wrapper mb30">
-    <div class="dark">
-
-      <div class="column12 biograph">
-      <ul>
-	@foreach ($data as $d)
-      	<li><a href="{{ url(env('SINGLE_SLUG') . str_slug(shortTitle($d->walltitle), '-') . '/' . $d->wallslug . '_' . $d->id . '.html') }}">{{ $d->walltitle }}</a></li>
-	@endforeach
-      </ul>
       </div>
       
       <div class="shop-aside column3">
